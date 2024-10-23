@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="color_2596F4">#2596f4</color>
+    <color name="color_9AADB7">#9aadb7</color>
+    <color name="color_C3CFD5">#c3cfd5</color>
+
+    <color name="colorRed">#FC3C3C</color>
+    <color name="colorOrange">#FB7022</color>
+    <color name="colorBlue">#2366FC</color>
+    <color name="colorMaroon">#7453FE</color>
+    <color name="grayText">#A3A3A3</color>
+    <color name="bgUnselected">#F6F6F6</color>
+    <color name="grayDrawerItem">#EDEDED</color>
+    <color name="colorExitBtn">#2385FF</color>
+    <color name="colorOfflineBtn">#FF1313</color>
+    <color name="ads_bg_color">#E0E0E0</color>
+    <color name="adsTextColor">#656565</color>
+    <color name="dialog_background">#FCFAFF</color>
+
+
+</resources>

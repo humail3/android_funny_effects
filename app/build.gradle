@@ -1,0 +1,329 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.firebase.crashlytics'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.voicechanger.app.effects"
+        minSdk 25
+        targetSdk 34
+        versionCode 4
+        versionName "4.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            firebaseCrashlytics {
+                mappingFileUploadEnabled true
+//                googleServicesResourceRoot = project.rootProject.file("app")
+//                serviceJson rootProject.file("app/google-services.json")
+//mappingFile rootProject.file("path/to/your/mapping-file.txt")
+//
+//
+            }
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            firebaseCrashlytics {
+                mappingFileUploadEnabled false
+            }
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/jniLibs']
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.work:work-runtime-ktx:2.9.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'com.google.android.datatransport:transport-runtime:3.1.9'
+    implementation 'androidx.navigation:navigation-ui:2.5.3'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    // ExoPlayer
+    implementation 'com.google.android.exoplayer:exoplayer:2.18.5'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.18.5'
+    implementation 'com.google.android.exoplayer:exoplayer-dash:2.18.5'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.18.5'
+
+    // SpinKit
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+    // Lottie Animation
+    implementation 'com.airbnb.android:lottie:5.2.0'
+
+    implementation 'com.amitshekhar.android:android-networking:1.0.2'
+    implementation 'com.amitshekhar.android:rx2-android-networking:1.0.0'
+    implementation 'javax.inject:javax.inject:1'
+
+    // Dagger
+    implementation 'com.google.dagger:dagger-android-support:2.20'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.20'
+
+    // MVVM LifeCycle
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    implementation "android.arch.lifecycle:viewmodel:1.1.1"
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
+
+    // androidxSecurity
+    implementation "androidx.security:security-crypto:1.0.0"
+
+    // Add Libs
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    // googleAds
+    implementation 'com.google.android.ump:user-messaging-platform:2.1.0'
+
+    // FireBase
+    implementation 'com.google.firebase:firebase-analytics:21.2.2'
+    implementation 'com.google.firebase:firebase-crashlytics:18.3.7'
+    implementation 'com.google.firebase:firebase-perf:20.3.2'
+    implementation platform('com.google.firebase:firebase-bom:33.1.0')
+
+    implementation "androidx.legacy:legacy-support-v4:1.0.0"
+
+    // UpdateDialog
+    implementation 'com.google.android.play:app-update:2.1.0'
+    // Retrofit
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.3'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // Kotlin Standard Library
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.20"
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    // Testing
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
+
+
+
+
+
+
+
+
+
+
+//plugins {
+//    id 'com.android.application'
+////    id 'com.google.gms.google-services'
+//    id 'com.google.firebase.crashlytics'
+//}
+//apply plugin: 'kotlin-android'
+//apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-kapt'
+//
+//android {
+//    compileSdk 34
+//
+//    defaultConfig {
+//        applicationId "com.voicechanger.app.effects"
+//        minSdk 25
+//        targetSdk 34
+//        versionCode 4
+//        versionName "4.0"
+//        multiDexEnabled true
+//        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+//
+//    }
+//
+//
+//
+//    buildTypes {
+//        release {
+//            debuggable false
+//            minifyEnabled true
+//            shrinkResources true
+//
+////            extra
+////            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//
+//
+//            firebaseCrashlytics {
+//                mappingFileUploadEnabled true
+////                googleServicesResourceRoot = file("${projectDir}/src")
+//            }
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        }
+//        debug {
+//            debuggable false
+//            minifyEnabled true
+//            shrinkResources true
+//            firebaseCrashlytics {
+//                mappingFileUploadEnabled false
+//            }
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        }
+//    }
+//
+//    buildFeatures {
+//        viewBinding true
+//        dataBinding true
+//    }
+//
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
+//
+//    lintOptions {
+//        checkReleaseBuilds false
+//        abortOnError false
+//    }
+//
+//    bundle {
+//        language {
+//            enableSplit = false;
+//        }
+//    }
+//    sourceSets {
+//        main {
+//            jniLibs.srcDirs = ['src/main/jniLibs']
+//        }
+//    }
+//}
+//dependencies {
+//
+//    implementation 'androidx.work:work-runtime-ktx:2.9.0'
+//    implementation 'androidx.multidex:multidex:2.0.1'
+//    implementation 'androidx.appcompat:appcompat:1.6.1'
+//    implementation 'com.google.android.material:material:1.6.1'
+//    implementation 'com.google.android.datatransport:transport-runtime:3.1.9'
+//    implementation 'androidx.navigation:navigation-ui:2.5.3'
+//    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+//    testImplementation 'junit:junit:4.13.2'
+//    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+//    // ExoPlayer
+//    implementation 'com.google.android.exoplayer:exoplayer:2.18.5'
+//    implementation 'com.google.android.exoplayer:exoplayer-core:2.18.5'
+//    implementation 'com.google.android.exoplayer:exoplayer-dash:2.18.5'
+//    implementation 'com.google.android.exoplayer:exoplayer-ui:2.18.5'
+//
+//    // SpinKit
+//    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+//
+//    // Lottie Animation
+//    implementation 'com.airbnb.android:lottie:5.2.0'
+//
+//    implementation 'com.amitshekhar.android:android-networking:1.0.2'
+//    implementation 'com.amitshekhar.android:rx2-android-networking:1.0.0'
+//    implementation 'javax.inject:javax.inject:1'
+//
+//    // Dagger
+//    implementation 'com.google.dagger:dagger-android-support:2.20'
+//    annotationProcessor 'com.google.dagger:dagger-compiler:2.20'
+//
+//    // MVVM LifeCycle
+//    implementation "android.arch.lifecycle:extensions:1.1.1"
+//    implementation "android.arch.lifecycle:viewmodel:1.1.1"
+//
+//    // Glide
+//    implementation 'com.github.bumptech.glide:glide:4.14.2'
+//    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
+//
+//    // androidxSecurity
+//    implementation "androidx.security:security-crypto:1.0.0"
+//
+//    // Add Libs
+//    implementation fileTree(include: ['*.jar'], dir: 'libs')
+//
+//    // googleAds
+//    implementation 'com.google.android.ump:user-messaging-platform:2.1.0'
+//
+//    // FireBase
+//    implementation 'com.google.firebase:firebase-analytics:21.2.2'
+//    implementation 'com.google.firebase:firebase-crashlytics:18.3.7'
+//    implementation 'com.google.firebase:firebase-perf:20.3.2'
+//
+//
+//    implementation "androidx.legacy:legacy-support-v4:1.0.0"
+//
+//    //UpdateDialog
+//    implementation 'com.google.android.play:core:1.10.3'
+//
+//    // Retrofit
+//    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.3'
+//    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+//
+//
+////    extra
+//    implementation 'com.android.tools.build:gradle:7.0.0'
+//    implementation 'com.google.gms:google-services:4.4.2'
+//    implementation 'com.google.firebase:firebase-crashlytics-gradle:3.0.1'
+//
+//    implementation platform('com.google.firebase:firebase-bom:33.1.0')
+//    implementation 'com.google.firebase:firebase-crashlytics'
+//    implementation 'com.google.firebase:firebase-analytics'
+//
+////    extra
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.20"
+//    implementation 'androidx.core:core-ktx:1.13.1'
+//    implementation 'androidx.appcompat:appcompat:1.7.0'
+//    implementation 'com.google.android.material:material:1.12.0'
+//    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+//    testImplementation 'junit:junit:4.13.2'
+//    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+//
+//}
+//
+//
